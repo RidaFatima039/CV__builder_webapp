@@ -66,3 +66,4 @@ jobs:
           app-name: 'CV-builder-backend'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D5B937EF88E54E399D8074B9E39B99A2 }}
+          package: ./backend
