@@ -9,7 +9,7 @@ from rest_framework import viewsets, status
 from rest_framework.response import Response
 from .models import Resume
 from .serializers import ResumeSerializer
-
+from rest_framework.parsers import MultiPartParser, FormParser
 
 def parse_request_data(data):
     """
@@ -36,6 +36,7 @@ class ResumeViewSet(viewsets.ModelViewSet):
 
     queryset = Resume.objects.all()
     serializer_class = ResumeSerializer
+    parser_classes = [MultiPartParser, FormParser]
 
     def list(self, request, *args, **kwargs):
         """Return the first resume if exists, otherwise empty list."""
